@@ -1,0 +1,54 @@
+.categories{
+    width: 70%;
+    margin: 0 auto;
+}
+.categories .slick-list{
+    padding-top: 30px;
+}
+.categories  .slick-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+ .categories .categories_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .categories_item:hover img{
+    transform: scale(1.1);
+  }
+  .categories_item img {
+    transition: 0.4s;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover; /* Şəkillərin dairəvi görünməsi üçün */
+  }
+  
+  .categories_item h4{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+.categories  .slick-next, .slick-prev {
+    background-color: rgba(1, 1, 1, 0.2);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    transition: 0.3s    ;
+  }
+  
+  .slick-prev {
+    left:0; /* Sol oxun yeri */
+  }
+  
+  .slick-next {
+    right:0; /* Sağ oxun yeri */
+  }

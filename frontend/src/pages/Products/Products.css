@@ -1,0 +1,22 @@
+.container_products{
+    width: 92%;
+    margin: 0 auto;
+}
+.productsBack{
+    background: url(../../assets/images/productsBack.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100rem;
+    margin-top:10rem;
+}
+.products{
+    z-index: 1000;
+    position: relative;
+    top: -7%;
+    background-color: white;
+    height: max-content;
+    padding: 30px 0; 
+    box-shadow: 1px 1px 15px 1px #ddd;
+}

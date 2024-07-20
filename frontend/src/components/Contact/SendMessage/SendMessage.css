@@ -1,0 +1,67 @@
+.sendMessage{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center ;
+    margin-top: 4rem;
+}
+.sendMessage form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+}
+.sendMessage form div{
+    display: flex;
+    justify-content: space-between;
+}
+.sendMessage form div input{
+    width: 48%;
+    padding:20px;
+    font-size: 14px;
+    border: 1px solid #e4e4e4;
+    color: #111;
+}
+.sendMessage textarea{
+    margin-top: 20px;
+    padding:20px;
+    font-size: 14px;
+    border: 1px solid #e4e4e4;
+    color: #111;
+}
+.sendMessage h5{
+    font-size: 34px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.sendMessage button{
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    height: 55px;
+    padding:0 65px;
+    margin-top: 20px;
+    background: black;
+    border: none;
+    color: white;
+    width: max-content;
+}
+.sendMessage button:hover{
+    background-color: #961C2B;
+    border: none;
+
+}
+@media only screen and (max-width: 768px) {
+    .sendMessage form div:nth-of-type(1){
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sendMessage form div input{
+        width: 100%;
+    }
+    
+  }
+  

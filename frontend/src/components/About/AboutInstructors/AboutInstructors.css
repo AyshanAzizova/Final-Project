@@ -1,0 +1,74 @@
+.aboutInstructors {
+    margin: 0 auto 60px;
+    background-color: #f0f1f33f;
+     padding: 30px 0;
+}
+.instructors_heading {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+.instructors_heading h3 {
+    font-size: 55px;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+.instructors_heading p {
+    position: relative;
+}
+.instructors {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.instructors_item {
+    width: 30%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.instructors_icons{
+    bottom: 10%;
+    color: white;
+    left: 30%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transition: 0.4s;
+}
+.instructors_icons li{
+    padding: 8px;
+    background-color: #9b9b9b;
+}
+.instructors_icons svg{
+    font-size: 20px;
+    color: #ffffffcd;
+}
+.instructor_overlay{
+    position: absolute;
+    transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.452);
+    opacity: 0;
+}
+.instructors_item:hover .instructor_overlay{
+    opacity: 1;
+}
+.instructors_item:hover .instructors_icons{
+    opacity: 1;
+    bottom: 50%;
+}
+.instructors_item img {
+    width:100%;
+    height: 100%;
+}

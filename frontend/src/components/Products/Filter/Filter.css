@@ -1,0 +1,34 @@
+.filter{
+    margin-top: 40px;
+}
+.contain{
+  width: 100%;
+}
+.filter button{ 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #961c2b;
+    border: 2px none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+.filter .filterIcon{
+    font-size: 24px;
+    font-weight: 200;
+}
+.dropdown_section {
+    display: none; /* Başlangıçda gizlədir */
+  }
+  
+  .dropdown_section.open {
+    display: block; /* Açıldıqda görünür */
+  }
+  
+  .dropdown_section.closed {
+    display: none; /* Bağlandıqda gizlədir */
+  }
+  

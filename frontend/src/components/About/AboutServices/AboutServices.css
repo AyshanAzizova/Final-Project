@@ -1,0 +1,77 @@
+.aboutServices {
+  background-image: url(../../../assets/images/home16.webp);
+  background-size: cover;
+  padding: 90px 0;
+  margin-top: 50px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.aboutServices:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(27, 27, 27, 0.539);
+}
+.services {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+}
+.services div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  height: 100%;
+}
+.services div h4 {
+  position: relative;
+  padding: 0 0 5px;
+  margin: 17px 0 12px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.services div h4::after {
+  content: "";
+  display: inline-block;
+  background-color: #fff;
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.services_icons {
+  display: inline-block;
+  color: white;
+  font-size: 75px;
+}
+@media only screen and (max-width: 768px) {
+    .aboutServices {
+        padding: 100px 0;
+    }
+    .services{
+        flex-direction: column;
+        gap: 60px;
+    }
+    .services div{
+        padding: 0 20px;
+    }
+    .services div h4{
+        font-size:26px;
+        margin: 15px 0 20px;
+    }
+    .services div .services_icons{
+        font-size:78px;
+    }
+}

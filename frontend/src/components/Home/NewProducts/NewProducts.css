@@ -1,0 +1,217 @@
+.newProducts {
+    margin-top: 4rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.newProducts h2 {
+    padding-bottom: 14px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.newProducts h2::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 3px;
+    background-color: #961c2b;
+    bottom: 0;
+    left: 48%;
+}
+.newProducts_item {
+    margin-top: 40px;
+    width: 49%;
+    border: 2px solid #e7e7e7;
+}
+
+.newProducts_item_top {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e7e7e7;
+}
+.newProducts_item_image {
+    width: 45%;
+    position: relative;
+}
+.newProducts_item_image span {
+    position: absolute;
+    left: 4%;
+    top: 5%;
+    padding: 0 10px;
+    background-color: #2786b6;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 3.2px;
+}
+.newProducts_item_image img {
+    height: 100%;
+    width: 100%;
+}
+.newProducts_item_text {
+    width: 50%;
+    text-align: left;
+}
+.newProducts_item_text h4 a {
+    color: #111;
+}
+.newProducts_item_text p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #961c2b;
+    margin-left: 4px;
+}
+.newProducts_item_text p s {
+    font-size: 13px;
+    text-decoration: line-through;
+    font-weight: 500;
+    color: #828282;
+}
+
+.newProducts_item_text h4 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    margin-top: 3px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.newProducts_item_text p:nth-of-type(1) {
+    position: relative;
+    padding-bottom: 10px;
+    margin: 17px 0;
+    border-bottom: 1px solid #e7e7e7;
+}
+.newProducts_item_text p:nth-of-type(2) {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #969696;
+}
+.newProducts_buttons {
+    margin-top: 17px;
+    display: flex;
+    gap: 4px;
+}
+.newProducts_buttons button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-family: Jost;
+    text-transform: uppercase;
+    border: 1px solid #e7e7e7;
+    background: transparent;
+    transition: 0.4s;
+    padding: 0 17px;
+    font-weight: 700;
+    height: 45px;
+}
+.newProducts_buttons .wishButton:hover::after, .quickviewButton:hover::after{
+content: "Add to Wishlist";
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #000000c1;
+padding: 11px;
+border-radius: 4px;
+text-transform: none;
+font-weight: 400;
+font-size: 14px;
+color: white;
+height: 2px;
+width: 100px;
+top: -34px;
+left: 0;
+}
+.newProducts_buttons .quickviewButton:hover::after{
+    content: "Quickview";
+
+}
+.newProducts_buttons button:hover {
+    background-color: #961c2b;
+    color: white;
+}
+.newProducts_buttons button svg {
+    font-size: 17px;
+}
+.newProducts_item_bottom {
+    position: relative;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.newProducts_item_bottom ul {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #ff4545;
+    border: 2px solid #ff4545;
+    border-radius: 30px;
+}
+.newProducts_item_bottom ul li {
+    margin: 0 7px;
+}
+.newProducts_item_bottom h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ff4545;
+}
+.newProducts_item_bottom svg {
+    font-size: 24px;
+    font-weight: 900;
+}
+@media only screen and (max-width: 1200px) {
+    .newProducts_item_top {
+        flex-direction: column;
+    }
+    .newProducts_item_image {
+        width: 100%;
+    }
+    .newProducts_item_text {
+        width: 100%;
+    }
+    .newProducts_item_bottom {
+        flex-direction: column;
+        margin-top: 16px;
+        gap: 10px;
+    }
+    .newProducts_item_bottom div {
+        margin-left: 4px;
+    }
+    .newProducts_item_bottom div ul {
+        font-size: 15px;
+    }
+    .newProducts_item_bottom div ul li {
+        margin: 0 3px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .newProducts {
+        flex-direction: column;
+    }
+    .newProducts_item {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .newProducts_item_bottom div ul {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+    .newProducts_buttons .wishButton:hover::after, .quickviewButton:hover::after{
+        left: -130%;
+    }
+
+}

@@ -1,0 +1,90 @@
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+.carousel .slick-list {
+  padding-top: 30px;
+}
+.carousel .slick-slide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sliderText {
+    width: 30%;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  top: 30%;
+  right: 14%;
+  text-align: end;
+}
+.sliderText p{
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-bottom: 34px;
+}
+.sliderText h2{
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: .05em;
+    line-height: 80px;
+}
+.sliderText a{
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    background-color: #fff;
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    transition: all .3s;
+    display: inline-block;
+    
+}
+
+.carousel .carousel_item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.carousel_item img {
+  transition: 0.4s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Şəkillərin dairəvi görünməsi üçün */
+}
+
+.carousel_item h4 {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.slick-next,
+.slick-prev {
+  width: 28px;
+  font-size: 30px;
+  height: 20px;
+  z-index: 1;
+  transition: 0.3s;
+}
+.slick-prev {
+  left: 0; /* Sol oxun yeri */
+}
+
+.slick-next {
+  right: 0; /* Sağ oxun yeri */
+}

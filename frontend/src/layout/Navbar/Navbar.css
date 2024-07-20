@@ -1,0 +1,121 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  padding: 22px 0; 
+  background-color: #fff; /* Lazım olsa fon rəngi əlavə edin */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav .left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+  width: 33%;
+}
+
+nav .center {
+  justify-content: center;
+}
+
+nav .center img {
+  width: 155px;
+}
+
+nav .left ul {
+  display: flex;
+  gap: 39px;
+}
+
+nav .left a {
+  font-size: 17px;
+  font-weight: 600;
+  color: #343434;
+  font-family: 'Jost', sans-serif;
+}
+
+nav .right {
+  justify-content: end;
+  gap: 16px;
+}
+
+nav .right .nav-icon {
+  font-size: 24px;
+  color: #343434;
+  cursor:pointer;
+  transition: 0.3s;
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #343434;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  nav .left ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  nav .left ul.open {
+    display: flex;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  nav .right .nav-icon:nth-child(3) {
+    display: none;
+  }
+  nav .right .nav-icon:nth-child(2) {
+    display: none;
+  }
+}
+
+.user-icon {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .user-icon {
+    display: block;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  .menu.open {
+    display: flex;
+  }
+}

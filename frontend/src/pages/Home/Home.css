@@ -1,0 +1,21 @@
+.homeHeader{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #111;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
+    margin-top:4.5rem ;
+}
+.homeHeader::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 1px;
+    background-color: #961c2b;
+    bottom: 0;
+    left: 47%;
+    }

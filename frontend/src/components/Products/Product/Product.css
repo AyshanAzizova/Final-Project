@@ -1,0 +1,130 @@
+/* src/components/Product/Product.css */
+.product {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    justify-content: space-between;
+    padding-top: 30px !important;
+  }
+  
+  .product_item {
+    width: 23%;
+  }
+  
+  .product_item_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .product_item_body span {
+    color: #961c2b;
+    font-weight: 700;
+  }
+  
+  .product_item_image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .product_item_image_hover {
+    display: flex;
+    transition: 0.3s;
+    gap: 20px;
+    position: absolute;
+    bottom: 10%;
+    opacity: 0;
+  }
+  
+  .product_item_image_hover button {
+    border: none;
+    position: relative;
+    transition: 0.4s;
+  }
+  
+  .product_item_image_hover button:hover::after {
+    content: "Add to Wishlist";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000cc;
+    padding: 11px;
+    border-radius: 4px;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+    height: 2px;
+    width: 100px;
+    top: -34px;
+    left: -68%;
+  }
+  
+  .product_item_image_hover button:nth-of-type(1):hover::after {
+    content: "Select Option";
+  }
+  
+  .product_item_image_hover button:nth-of-type(2):hover::after {
+    content: "Quickview";
+  }
+  
+  .product_item_image_hover button:hover {
+    transition: 0.3s;
+    border: none;
+  }
+  
+  .product_item_image:hover .product_item_image_hover {
+    opacity: 1;
+    bottom: 14%;
+  }
+  
+  .product_item_image_hover .product_icon:hover {
+    background-color: #961c2b;
+    color: white;
+  }
+  
+  .product_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    transition: 0.4s;
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px rgba(144, 144, 144, 0.333);
+    color: black;
+    font-size: 23px;
+  }
+  
+  .product_item_image img {
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    .product_item {
+      width: 30%;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .product_item {
+      width: 48%;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .product {
+      justify-content: center;
+    }
+  
+    .product_item {
+      width: 90%;
+    }
+  }
+  

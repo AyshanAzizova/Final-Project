@@ -1,0 +1,67 @@
+.banner {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: initial;
+    row-gap: 30px;
+    margin-top: 2rem;
+}
+.banner_top, .banner_bottom {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+}
+.banner_item {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.5s; 
+}
+.bannerContent h3{
+    text-align: start;
+}
+.banner_item:hover img {
+    transform: scale(1.1);
+    transform-origin: center center; 
+}
+.banner_1 {
+    width: 24%;
+}
+.banner_2 {
+    width: 48%;
+}
+.banner_3 {
+    width: 24%;
+}
+.banner_4 {
+    width: 49%;
+}
+.banner_5 {
+    width: 49%;
+}
+.banner_top .banner_item .bannerContent {
+    position: absolute; 
+    z-index: 1000;
+    top: 6%;
+    left: 8%;
+}
+.banner_bottom .banner_item .bannerContent {
+    position: absolute; 
+    z-index: 1000;
+    top: 10%;
+    left: 6%;
+}
+.banner_item img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s; 
+}
+@media only screen and (max-width: 600px) {
+    .banner_top , .banner_bottom{
+        flex-direction: column;
+        gap: 30px;
+    }
+     .banner_item{
+      width: 100%;
+    }
+  }

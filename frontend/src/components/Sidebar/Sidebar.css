@@ -1,0 +1,126 @@
+.sidebar {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 380px;
+    height: 100%;
+    background-color: white;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar_bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.sidebar_bottom_top {
+    position: absolute;
+    bottom: 10%;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 1px 0 9px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar_bottom a {
+    width: 50%;
+    display: block;
+    align-items: center;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2em;
+    height: 59px;
+    line-height: 61px;
+    color: #fff;
+    background-color: #2a2a2a;
+    transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+    float: left;
+}
+
+.sidebar_bottom a:nth-of-type(2) {
+    background-color: #111;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.sidebar-header span {
+    font-weight: 600;
+    display: block;
+    min-width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 46px;
+    color: #111;
+    right: 0;
+    top: 0;
+    border: 1px solid #ecebeb;
+    border-top: transparent;
+    border-right: transparent;
+}
+
+.close-icon {
+    padding: 0 10px;
+    cursor: pointer;
+    color: #111;
+    border-right: 1px solid #dedede;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    line-height: 47px;
+}
+
+.sidebar_items {
+    overflow-y: auto;
+    height: calc(100% - 100px);
+}
+
+.sidebar-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 16px;
+    text-align: justify;
+    color: #111;
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid #ecebeb;
+}
+
+.sidebar-item a {
+    color: #111;
+}
+
+.sidebar-item img {
+    width: 90px;
+    height: 90px;
+}
+
+h3 {
+    font-weight: 500;
+    line-height: 43px;
+    height: 45px;
+    color: #111;
+    border-bottom: 1px solid #ecebeb;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 20px;
+}

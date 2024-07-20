@@ -1,0 +1,55 @@
+.productInfo{
+    width: 35%;
+}
+.productInfo h2{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 500;
+    color: #111;
+    text-transform: capitalize;
+}
+.productInfo h2 button{
+    background: white;
+    transition: .3s;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #dedede;
+}
+
+.productInfo span ins{
+    font-size: 16px;
+    font-weight: 500;
+    color: #83868c;
+    margin: 0 10px 0 0;
+    text-decoration: line-through;
+}
+.productInfo span del{
+    font-size: 18px;
+    font-weight: 500;
+    color: #961c2b;
+    margin-left: 6px;
+    text-decoration: none !important;
+}
+.productInfo p{
+    margin-top: 2.5rem;
+    font-size: 15px;
+    position: relative;
+    color: #969696;
+    line-height: 1.6;
+    font-weight: 400;
+    padding: 22px 0 0;
+}
+.productInfo p::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background-color: #dedede;
+}
