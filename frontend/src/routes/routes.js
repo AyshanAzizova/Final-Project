@@ -6,10 +6,16 @@ import Contact from '../pages/Contact/Contact'
 import Products from '../pages/Products/Products'
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import SignIn from "../pages/SignIn/SignIn";
+import SignUp from "../pages/SignUp/SignUp";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import ResetPassword from "../pages/ResetPassword/ResetPassword";
+import Cart from "../components/Cart/Cart";
 
 
 
 export const ROUTES = [
+        // MainRoot
     {
         path:'/',
         element:<MainRoot/>,
@@ -35,13 +41,62 @@ export const ROUTES = [
                 element:<Products/>
             },
             {
-                path:'productDetail',
-                element:<ProductDetail/>
-            },
+                path: 'productDetail',
+                element: <ProductDetail />
+              }
+              ,
             {
                 path:'wishlist',
                 element:<Wishlist/>
+            },
+            {
+                path:'cart',
+                element:<Cart/>
+            },
+            {
+                path:'signin',
+                element:<SignIn/>
+            },
+            {
+                path:'signup',
+                element:<SignUp/>
+            },
+            {
+                path:'forgotpassword',
+                element:<ForgotPassword/>
+            },
+            {
+                path:'resetPassword',
+                element:<ResetPassword/>
             }
         ]
-    }
+    },
+        // AdminRoot
+        // {
+        //     path: '/admin',
+        //     element: <AdminRoot />,
+        //     children: [
+        //         {
+        //             path: 'products',
+        //             element: <Products />
+        //         },
+        //         {
+        //             path: '',
+        //             element: <Dashboard />
+    
+        //         },
+        //         {
+        //             path: 'add',
+        //             element: <AddProduct />
+        //         },
+        //         {
+        //             path:'products/:id',
+        //             element:<ProductDetail/>
+        //         },
+        //         {
+        //             path:'products/edit/:id',
+        //             element:<EditProducts/>
+        //         }
+        //     ]
+        // }
 ]

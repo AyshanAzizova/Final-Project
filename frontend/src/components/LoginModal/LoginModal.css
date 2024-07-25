@@ -1,0 +1,56 @@
+.login-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  .login-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .login-modal h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-modal form div {
+    margin-bottom: 10px;
+  }
+  
+  .login-modal form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login-modal form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .login-modal form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .login-modal button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

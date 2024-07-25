@@ -54,6 +54,7 @@ export const addSingleProduct = async (request, response) => {
         return response.status(existingStockItem ? 200 : 201).send(existingProduct);
     }
 
+    const stock = [{quantity, size, color}]
     const newProduct = await Product.create({
         title,
         price,
@@ -61,7 +62,7 @@ export const addSingleProduct = async (request, response) => {
         slug,
         sku,
         description,
-        stock: [{ color, size, quantity }],
+        stock,
         productPic: path
     })
     response.status(201).send(newProduct)

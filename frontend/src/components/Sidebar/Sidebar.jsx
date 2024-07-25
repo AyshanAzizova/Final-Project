@@ -11,9 +11,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { id: 2, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
     { id: 3, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
     { id: 4, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
-    { id: 5, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
-    { id: 6, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
-    { id: 7, name: "Superpose Lamp / Black", size: "M", qty: 3, price: 215.0 },
   ];
 
   const [items, setItems] = useState(initialItems);
@@ -54,7 +51,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <span>${totalAmount.toFixed(2)}</span>
       </div>
       <div className="sidebar_bottom">
-        <Link>VIEW CART</Link>
+        <Link to='/cart'>VIEW CART</Link>
         <Link>CHECK OUT</Link>
       </div>
     </div>

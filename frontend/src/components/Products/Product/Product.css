@@ -103,6 +103,7 @@
   }
   
   .product_item_image img {
+    cursor: pointer;
     width: 100%;
   }
   

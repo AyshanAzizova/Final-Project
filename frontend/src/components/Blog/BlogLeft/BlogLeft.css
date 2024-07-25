@@ -7,10 +7,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .blogLeft_item{
     width: 48.5%;
-    margin-bottom: 40px;
+    margin-bottom: 40px;  
 }
 .blogLeft_item h4{
     font-size: 11px;
@@ -22,6 +23,7 @@
     padding-bottom: 5px;
 }
 .blogLeft_item h3{
+    text-align: left !important;
     position: relative;
     padding-bottom: 10px;
 }

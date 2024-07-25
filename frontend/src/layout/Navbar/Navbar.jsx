@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="burger-menu" onClick={toggleMenu}>
               {isOpen ? <FaTimes /> : <FaBars />}
             </div>
-            <ul className={`menu ${isOpen ? "open" : " "}`}>
+            <ul className={`menu ${isOpen ? "open" : ""}`}>
               <li>
                 <Link to='/'>Home</Link>
               </li>
@@ -49,7 +49,7 @@ const Navbar = () => {
               <li>
                 <Link to='/contact'>Contact Us</Link>
               </li>
-              <li className="user-icon">
+              <li className="user-icon" >
                 <BiUser className="nav-icon" />
               </li>
             </ul>
@@ -59,12 +59,12 @@ const Navbar = () => {
           </div>
           <div className="right">
             <FiSearch className="nav-icon" />
-            <BiUser className="nav-icon" />
+            <Link to='signIn'><BiUser className="nav-icon"/></Link>
             <Link to='wishlist'><FaRegHeart className="nav-icon" /></Link>
             <AiOutlineShopping
               className="nav-icon"
               style={{ fontSize: "29px" }}
-              onClick={toggleSidebar} // Sidebarı açmaq üçün klik eventini əlavə et
+              onClick={toggleSidebar} // Sidebarı açmaq üçün klik eventi
             />
           </div>
         </nav>

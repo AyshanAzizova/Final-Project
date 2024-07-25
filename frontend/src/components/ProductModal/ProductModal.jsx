@@ -1,4 +1,3 @@
-// src/components/ProductModal/ProductModal.jsx
 import React from "react";
 import "./ProductModal.css";
 
@@ -10,7 +9,7 @@ const ProductModal = ({ product, onClose }) => {
           &times;
         </button>
         <div className="modal_body">
-          <img src={product.image} alt={product.name} className="modal_image" />
+          <img src={product.productPic} alt={product.name} className="modal_image" />
           <div className="modal_details">
             <h2>{product.name}</h2>
             <p>{product.description}</p>

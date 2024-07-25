@@ -2,6 +2,7 @@ import React from "react";
 import "./BlogLeft.css";
 import blog11 from "../../../assets/images/blog11.webp";
 import blogRight from "../../../assets/images/blogRight.webp";
+import { Link } from "react-router-dom";
 
 const BlogLeft = () => {
   return (
@@ -12,7 +13,7 @@ const BlogLeft = () => {
         </div>
         <h4>NEWS</h4>
         <h3>
-          <a>Interesting Things You Didn't Know</a>
+          Interesting Things You Didn't Know
         </h3>
         <p>
           I got my first premium designer bag when I was in middle school. It
