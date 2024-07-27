@@ -2,6 +2,10 @@ import React from "react";
 import "./ProductModal.css";
 
 const ProductModal = ({ product, onClose }) => {
+  if (!product) {
+    return null; // No product to display
+  }
+
   return (
     <div className="modal_overlay">
       <div className="modal_content">

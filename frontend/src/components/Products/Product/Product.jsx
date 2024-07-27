@@ -35,7 +35,7 @@ const Product = () => {
             <img src={product.productPic} alt="product" />
             <div className="product_item_image_hover">
               <button>
-                <Link to="/productDetail" className="product_icon">
+                <Link to={`/products/${product._id}`} className="product_icon">
                   <MdMoreHoriz />
                 </Link>
               </button>

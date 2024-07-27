@@ -41,6 +41,7 @@
   }
   
   .product_item_image_hover button {
+    border-radius: 50%;
     border: none;
     position: relative;
     transition: 0.4s;

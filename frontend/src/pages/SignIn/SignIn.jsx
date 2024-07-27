@@ -1,8 +1,10 @@
 import React from "react";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
+import { event } from "jquery";
 
 const SignIn = ({ onClose, onRegisterClick, onForgotPasswordClick }) => {
+    const handleSubmit = async(event) => {}
   return (
     <div className="user-modal">
       <div className="user-modal-content">

@@ -41,7 +41,7 @@ export const ROUTES = [
                 element:<Products/>
             },
             {
-                path: 'productDetail',
+                path:"products/:id",
                 element: <ProductDetail />
               }
               ,

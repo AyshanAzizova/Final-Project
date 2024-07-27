@@ -8,7 +8,7 @@ router.get("/", getProducts)
 //Get single product
 router.get("/:productId", getSingleProduct)
 
-//Post a new product
+//Post a new produc
 router.post("/", addSingleProduct)
 
 

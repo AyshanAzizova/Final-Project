@@ -21,7 +21,7 @@ const BlogLeft = () => {
           for....
         </p>
         <span>
-          <a>Read more</a>
+          <Link>Read more</Link>
         </span>
       </div>
       <div className="blogLeft_item">
@@ -30,7 +30,7 @@ const BlogLeft = () => {
         </div>
         <h4>NEWS</h4>
         <h3>
-          <a>Interesting Things You Didn't Know</a>
+          Interesting Things You Didn't Know
         </h3>
         <p>
           I got my first premium designer bag when I was in middle school. It
@@ -38,7 +38,7 @@ const BlogLeft = () => {
           for....
         </p>
         <span>
-          <a>Read more</a>
+        <Link>Read more</Link>
         </span>
       </div>
       <div className="blogLeft_item">
@@ -47,7 +47,7 @@ const BlogLeft = () => {
         </div>
         <h4>NEWS</h4>
         <h3>
-          <a>Interesting Things You Didn't Know</a>
+          Interesting Things You Didn't Know
         </h3>
         <p>
           I got my first premium designer bag when I was in middle school. It
@@ -55,7 +55,7 @@ const BlogLeft = () => {
           for....
         </p>
         <span>
-          <a>Read more</a>
+        <Link>Read more</Link>
         </span>
       </div>
       <div className="blogLeft_item">
@@ -64,7 +64,7 @@ const BlogLeft = () => {
         </div>
         <h4>NEWS</h4>
         <h3>
-          <a>Interesting Things You Didn't Know</a>
+          Interesting Things You Didn't Know
         </h3>
         <p>
           I got my first premium designer bag when I was in middle school. It
@@ -72,7 +72,7 @@ const BlogLeft = () => {
           for....
         </p>
         <span>
-          <a>Read more</a>
+        <Link>Read more</Link>
         </span>
       </div>
     </div>
