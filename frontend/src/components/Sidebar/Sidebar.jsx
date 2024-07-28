@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       </div>
       <div className="sidebar_bottom">
         <Link to='/cart'>VIEW CART</Link>
-        <Link>CHECK OUT</Link>
+        <Link to='/checkout'>CHECK OUT</Link>
       </div>
     </div>
   );

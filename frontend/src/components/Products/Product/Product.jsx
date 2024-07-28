@@ -6,17 +6,24 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { LiaSearchSolid } from "react-icons/lia";
 import { MdMoreHoriz } from "react-icons/md";
 
-const Product = () => {
+const Product = ({ categoryId }) => {
   const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
-    fetch('/api/products')
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching products:', error));
-  }, []);
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(categoryId ? `/api/products/category/${categoryId}` : '/api/products');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, [categoryId]);
 
   const handleSearchClick = (id) => {
     setSelectedId(id);

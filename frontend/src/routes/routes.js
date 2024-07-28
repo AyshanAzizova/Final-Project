@@ -11,6 +11,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
 import Cart from "../components/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
 
 
 
@@ -48,6 +49,10 @@ export const ROUTES = [
             {
                 path:'wishlist',
                 element:<Wishlist/>
+            },
+            {
+                path:'checkout',
+                element:<Checkout/>
             },
             {
                 path:'cart',

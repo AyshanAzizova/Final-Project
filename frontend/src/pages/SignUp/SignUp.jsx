@@ -8,28 +8,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 //Redux Types
-import { AppDispatch } from "../../store/store.js";
+// import { AppDispatch } from "../../store/store.js";
 
 //Redux hooks
 import { useDispatch } from "react-redux";
-import { setUser } from "../../slices/user.slice.js";
+import { login } from "../../slices/user.slice.js";
 
 const SignUp = () => {
+  const fullNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const fullNameRef = useRef();
 
-  const dispatch = useDispatch();
+  const dicpatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
 
-    const email = emailRef.current?.value;
-    const fullName = fullNameRef.current?.value;
-    const password = passwordRef.current?.value;
-
-    // console.log(email, fullName, password);
+  const submitForm = async (requestBody) => {
 
     try {
       const response = await fetch("/api/auth/signup", {
@@ -37,47 +31,70 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, fullName, password }),
+        body: JSON.stringify(requestBody),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
         alert(data.error);
-
-        return;
       }
 
       console.log(data);
-
-      dispatch(
-        setUser({
-          email: data.email,
-          fullName: data.fullName,
-          password: data.password,
-          isAdmin: data.isAdmin,
-          _id: data._id,
-        })
+      dicpatch(
+        login({id: data._id})
       );
 
       if (emailRef.current) {
         emailRef.current.value = "";
       }
-
-      if (passwordRef.current) {
-        passwordRef.current.value = "";
-      }
-
       if (fullNameRef.current) {
         fullNameRef.current.value = "";
       }
+      if (passwordRef.current) {
+        passwordRef.current.value = "";
+      }
+      
+      console.log(emailRef,fullNameRef,passwordRef);
 
-      navigate("/");
+      navigate("/")
+
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    
+    const fullName = fullNameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    await submitForm({fullName,email,password});
+  }
+
+
+  // const handleGoogleLogin = async () => {
+  //   // const data = await signInWithPopup(auth, provider);
+  //   // const { displayName: fullName, email } = data.user;
+  //   // const { uid: password } = data.user.providerData[0];
+
+  //   console.log(password);
+
+  //   const firstName = fullName.split(' ')[0]
+  //   const lastName = fullName.split(' ')[1]
+
+
+  //   if (!firstName || !lastName || !email || !password) {
+  //     return;
+  //   }
+
+  //   await submitForm({ firstName, lastName, email, password });
+
+  //   navigate("/")
+  // }
   return (
     <div className="user-modal">
       <div className="user-modal-content">

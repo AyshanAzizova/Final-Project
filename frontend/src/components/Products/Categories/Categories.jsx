@@ -1,29 +1,27 @@
-import React from 'react';
+import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Categories.css'; // Xüsusi CSS faylınızı daxil edin
-import categories1 from '../../../assets/images/categories1.webp';
-import categories2 from '../../../assets/images/categories2.webp';
-import trend from '../../../assets/images/trend.webp';
-import boho from '../../../assets/images/boho.jpg'
-import wall from '../../../assets/images/wall.jpeg'
-import classic from '../../../assets/images/classic.jpeg'
-import crystal from '../../../assets/images/crystal.jpeg'
-
-
-
-
-
+import "./Categories.css";
+import decorative from "../../../assets/images/decorative.jpeg";
+import reading from "../../../assets/images/reading.jpeg";
+import modern from "../../../assets/images/modern.jpeg";
+import boho from "../../../assets/images/boho.jpg";
+import wall from "../../../assets/images/wall.jpeg";
+import classic from "../../../assets/images/classic.jpeg";
+import crystal from "../../../assets/images/crystal.jpeg";
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "flex",justifyContent:"center",
-        alignItems:"center"
-       }} // Oxların üslubları
+      style={{
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       onClick={onClick}
     />
   );
@@ -34,15 +32,18 @@ const PrevArrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: "flex",justifyContent:"center",
-        alignItems:"center"
-       }} // Oxların üslubları // Oxların üslubları
+      style={{
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       onClick={onClick}
     />
   );
 };
 
-const AutoPlaySliderWithArrows = () => {
+const AutoPlaySliderWithArrows = ({ onCategorySelect }) => {
   const settings = {
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -57,63 +58,54 @@ const AutoPlaySliderWithArrows = () => {
         breakpoint: 1200,
         settings: {
           slidesToShow: 4,
-        }
+        },
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 3,
-        }
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-        }
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
-  
-  
+
+  const categories = [
+    { id: "66a4e85e9dcd314c602490bb", name: "Boho", image: boho },
+    { id: "66a4e9e49dcd314c602490c6", name: "Reading", image: reading },
+    { id: "66a4e9c49dcd314c602490c1", name: "Decorative", image: decorative },
+    { id: "66a4d8c59dcd314c6024908a", name: "Modern", image: modern },
+    { id: "66a63646145a595d0eb78953", name: "Crystal", image: crystal },
+    { id: "66a4dda99dcd314c6024908f", name: "Wall", image: wall },
+    { id: "66a4d8b49dcd314c60249086", name: "Classic", image: classic },
+  ];
 
   return (
     <div className="container_products categories">
       <Slider {...settings}>
-      <div className='categories_item'>
-      <div style={{display:"flex",justifyContent:"center"}}><img src={boho} alt='categories2'/></div>
-        <h4>Boho</h4>
-      </div>
-      <div className='categories_item'>
-      <div style={{display:"flex",justifyContent:"center"}}><img src={trend} alt='categories2'/></div>
-        <h4>Modern</h4>
-      </div>
-        <div className='categories_item'>
-        <div style={{display:"flex",justifyContent:"center"}}><img src={crystal} alt='categories1'/></div>
-          <h4>Crystal</h4>
-        </div>
-        <div className='categories_item'>
-        <div style={{display:"flex",justifyContent:"center"}}><img src={categories2} alt='categories2'/></div>
-          <h4>Decorative</h4>
-        </div>
-        <div className='categories_item'>
-        <div style={{display:"flex",justifyContent:"center"}}><img src={classic} alt='categories2'/></div>
-          <h4>Classic</h4>
-        </div>
-        <div className='categories_item'>
-        <div style={{display:"flex",justifyContent:"center"}}><img src={categories1} alt='categories1'/></div>
-          <h4>Reading</h4>
-        </div>
-        <div className='categories_item'>
-        <div style={{display:"flex",justifyContent:"center"}}><img src={wall} alt='categories2'/></div>
-          <h4>Wall</h4>
-        </div>
-     
+        {categories.map((category) => (
+          <div
+            className="categories_item"
+            key={category.id}
+            onClick={() => onCategorySelect(category.id)}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={category.image} alt={category.name} />
+            </div>
+            <h4>{category.name}</h4>
+          </div>
+        ))}
       </Slider>
     </div>
   );

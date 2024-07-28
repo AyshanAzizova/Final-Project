@@ -1,0 +1,98 @@
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .shipping-details,
+  .order-summary {
+    width: 48%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .shipping-details h2,
+  .order-summary h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  
+  .order-summary ul li {
+    margin-bottom: 10px;
+  }
+  
+  .place-order-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .order-summary {
+    width: 48%;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Köşələrdə radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kölgə */
+  }
+  
+  .order-summary h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Başlığın ölçüsü */
+  }
+  
+  .order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  
+  .order-summary ul li {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ddd; /* Ayırıcı xətt */
+    padding-bottom: 8px;
+    font-size: 18px;
+  }
+  .order-summary ul li span{
+    font-weight: 600;
+  }
+  
+  .place-order-btn {
+    background-color: #333; /* Daha tünd rəng */
+    color: #fff;
+    padding: 15px 20px; /* Daha böyük düymə */
+    border: none;
+    border-radius: 4px; /* Köşələrdə radius */
+    cursor: pointer;
+    font-size: 18px; /* Daha böyük şrift */
+    width: 100%;
+    text-align: center;
+  }
+  
+  .place-order-btn:hover {
+    background-color: #000; /* Hover effekt */
+  }
+  

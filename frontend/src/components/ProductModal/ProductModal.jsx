@@ -6,8 +6,14 @@ const ProductModal = ({ product, onClose }) => {
     return null; // No product to display
   }
 
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="modal_overlay">
+    <div className="modal_overlay" onClick={handleOverlayClick}>
       <div className="modal_content">
         <button className="close_button" onClick={onClose}>
           &times;

@@ -1,36 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    fullName:"",
-    email:"",
-    password:"",
-    _id:"",
-    isAdmin :false,   
+    userId: null,
+    auth: false
+};
+
+if (JSON.parse(localStorage.getItem('user'))) {
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    initialState.userId = localUser.userId;
+    initialState.auth = true;
+}
+else{
+    localStorage.setItem('user',JSON.stringify({userId: null, auth: false}));
 }
 
 const userSlice = createSlice({
-    name:"user",
+    name: "user",
     initialState,
-    reducers:{
-        setUser:(state,action)=>{
-            console.log(action.payload);
-            console.log(state);
-            state._id = action.payload._id;
-            state.fullName = action.payload.fullName
-            state.password = action.payload.password;
-            state.email = action.payload.email
-            state.isAdmin = action.payload.isAdmin
+    reducers: {
+        login: (state, action) => {
+            //set local
+            localStorage.setItem('user', JSON.stringify({ userId: action.payload.id, auth: true }));
+            state.userId = action.payload.id;
+            state.auth = true;
         },
-        removeUser:(state,action)=>{
-            state._id = "";
-            state.fullName = "";
-            state.password = "";
-            state.email = "";
+        logout: (state, action) => {
+            console.log('test log out action')
+            localStorage.setItem('user', JSON.stringify({userId:null, auth: false}));
+            state.userId = null;
+            state.auth = false;
         }
     },
-
 });
 
-export const {setUser,removeUser} = userSlice.actions
+export const { login, logout } = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;
