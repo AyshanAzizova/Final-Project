@@ -1,10 +1,17 @@
 .filter{
     margin-top: 40px;
 }
+
+.filter ul{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 .contain{
   width: 100%;
 }
-.filter button{ 
+.filter button{
+  display: block; 
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -25,7 +32,11 @@
   }
   
   .dropdown_section.open {
-    display: block; /* Açıldıqda görünür */
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-around;
+    height: min-content; /* Açıldıqda görünür */
   }
   
   .dropdown_section.closed {

@@ -19,12 +19,18 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    display: flex;
-    flex-direction: column; /* Changed for stacking buttons */
+    display: flex ;
+    background-color: #fff; /* Bütün düymələr üçün arxa fon */
+    border-top: 1px solid #ecebeb; /* Yuxarı sərhəd əlavə et */
+    z-index: 1; /* Düymələrin üstündə qalması üçün artır */
 }
 
+
 .sidebar_bottom_top {
-    position: relative; /* Changed for better stacking */
+    z-index: 1;
+    bottom: 9%;
+    width: 100%;
+    position: absolute; /* Changed for better stacking */
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -34,7 +40,7 @@
 }
 
 .sidebar_bottom a {
-    width: 100%; /* Full width on mobile */
+    width: 50%; /* Full width on mobile */
     display: block;
     align-items: center;
     font-weight: 600;
@@ -47,7 +53,10 @@
     color: #fff;
     background-color: #2a2a2a;
     transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
-    margin-top: 10px; /* Added margin for separation */
+    border-top: 1px solid #ecebeb; /* Yuxarı sərhəd əlavə et */
+    margin: 0; /* Aralıq məsafəsini sil */
+    border-top: 1px solid #ecebeb; /* Yuxarı sərhəd */
+    z-index: 2; /* Düymələrin üstündə qalması üçün artır */
 }
 
 .sidebar_bottom a:nth-of-type(2) {
@@ -89,8 +98,9 @@
 
 .sidebar_items {
     overflow-y: auto;
-    height: calc(100% - 100px);
-    padding: 10px; /* Added padding */
+    height: calc(100% - 170px); /* Yüksəklik artırıldı, tam uyğun deyil */
+    padding: 10px; /* Dolğu əlavə edildi */
+    margin-bottom: 20px; /* Düymələri üçün yer */
 }
 
 .sidebar-item {
@@ -125,25 +135,6 @@ h3 {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-    }
-
-    .sidebar-header, .sidebar_bottom_top, .sidebar-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .sidebar-item img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .sidebar-item ul {
-        margin-left: 10px;
-    }
-}
 
 @media (max-width: 480px) {
     .sidebar {
@@ -151,13 +142,13 @@ h3 {
     }
 
     .sidebar-item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-    }
+    } 
 
     .sidebar-item img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
     }
 
     .sidebar-item ul {

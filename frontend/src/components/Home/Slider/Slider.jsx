@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css"; // Xüsusi CSS faylınızı daxil edin
 import categories1 from "../../../assets/images/home15.webp";
 import categories2 from "../../../assets/images/home16.webp";
+import { Link } from "react-router-dom";
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -87,7 +88,7 @@ const AutoPlaySliderWithArrows = () => {
             <p>Interior Lights</p>
             <h2>Bedroom Lights</h2>
             <button>
-              <a>SHOP NOW</a>
+              <Link to='/products'>SHOP NOW</Link>
             </button>
           </div>
         </div>
@@ -97,9 +98,9 @@ const AutoPlaySliderWithArrows = () => {
           </div>
           <div className="sliderText">
             <p>Interior Lights</p>
-            <h2>Modern Optical Lights</h2>
+            <h2>Modern Lights</h2>
             <button>
-              <a>SHOP NOW</a>
+              <Link to='/products'>SHOP NOW</Link>
             </button>
           </div>{" "}
         </div>

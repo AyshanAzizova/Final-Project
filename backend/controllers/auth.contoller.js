@@ -9,7 +9,7 @@ export const signup = async (request, response) => {
         const { fullName, password, email } = request.body;
         //check if all fields are filled
         if (!fullName || !password || !email) {
-            return response.status(400).send('Please fill all fields');
+            return response.status(400).send({ error: 'USer is not defined' });
         }
         //check if email already exists
         const exsistingUser = await User.findOne({ email: email })
@@ -41,7 +41,6 @@ export const signup = async (request, response) => {
 
 
 export const signin = async (request, response) => {
-
     try {
         const { email, password } = request.body
         if (!password || !email) {
@@ -63,11 +62,12 @@ export const signin = async (request, response) => {
     }
 }
 
+
 export const logout = async (request, response) => {
     try {
-        response.cookie("jwt", "")
-        response.status(200).send({ message: "Succesfully logout" })
+        response.cookie("jwt", "", { httpOnly: true, secure: true, sameSite: "strict", maxAge: 0 }); // Clear the JWT cookie
+        response.status(200).send({ message: "Successfully logged out" });
     } catch (error) {
-        return response.status(500).send({ error: "Internal server error" })
+        response.status(500).send({ error: "Internal server error during logout" });
     }
-}
+};

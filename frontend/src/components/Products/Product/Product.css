@@ -3,8 +3,9 @@
     margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 40px;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: calc((100% - 4 * 23%)/3);
+    row-gap: 3rem;
     padding-top: 30px !important;
   }
   
@@ -42,9 +43,13 @@
   
   .product_item_image_hover button {
     border-radius: 50%;
+    width: 25%;
     border: none;
     position: relative;
     transition: 0.4s;
+  }
+  .product_item_image_hover button svg{
+    font-size: 20px;
   }
   
   .product_item_image_hover button:hover::after {
@@ -107,6 +112,30 @@
     cursor: pointer;
     width: 100%;
   }
+
+  .pagination {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination_button {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .pagination_button.active {
+    background-color: #333;
+    color: white;
+  }
+  
   
   @media only screen and (max-width: 992px) {
     .product_item {

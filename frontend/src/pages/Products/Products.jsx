@@ -16,7 +16,7 @@ const Products = () => {
       <div className="container products">
         <Categories onCategorySelect={handleCategorySelect} />
         <Filter />
-        <Product categoryId={categoryId} />
+        <Product categoryId={categoryId} productsPerPage={12} showPagination={true} />
       </div>
     </div>
   );

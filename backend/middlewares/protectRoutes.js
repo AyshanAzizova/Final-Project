@@ -13,6 +13,7 @@ export const protectRoutes = async (request, response, next) => {
         }
 
         const user = await User.findById(decode._id)
+        
         if (!user) {
             return response.status(401).send({ error: "User not found" })
         }

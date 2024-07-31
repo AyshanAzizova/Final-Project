@@ -1,5 +1,5 @@
 import React from "react";
-import "../SignIn/SignIn.css";
+import "../SignIn/SignIn.jsx";
 
 //Router
 import { Link, useNavigate } from "react-router-dom";
@@ -57,7 +57,7 @@ const SignUp = () => {
       
       console.log(emailRef,fullNameRef,passwordRef);
 
-      navigate("/")
+      navigate("/signin")
 
     } catch (error) {
       console.log(error);

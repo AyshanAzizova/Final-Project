@@ -9,6 +9,7 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -117,5 +118,52 @@ nav .right .nav-icon {
   }
   .menu.open {
     display: flex;
+  }
+}
+@media (max-width: 600px) {
+  .burger-menu {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  .menu.open {
+    display: flex;
+  }
+  header .center img{
+    width: 120px;
+  }
+}
+@media (max-width: 476px) {
+  .burger-menu {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  .menu.open {
+    display: flex;
+  }
+  .header .center{
+    float: left;
+  }
+  header .center img{
+    width: 100px;
   }
 }

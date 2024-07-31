@@ -14,7 +14,24 @@ const Filter = () => {
     <div className='container_products filter'>
       <button onClick={toggleDropdown}><CiFilter className='filterIcon'/>Filter</button>
       <div className={`dropdown_section ${isOpen ? 'open' : 'closed'}`}>
-      <p>Dropdown content goes here</p>
+      <ul>
+      <h3>Category</h3>
+      <li>Boho</li>
+      <li>Classic</li>
+      <li>reading</li>
+    </ul>
+      <ul>
+      <h3>Size</h3>
+      <li>S</li>
+      <li>M</li>
+      <li>L</li>
+    </ul>
+    <ul>
+    <h3>Color</h3>
+    <li></li>
+    <li>M</li>
+    <li>L</li>
+  </ul>
 
       </div>
       </div>

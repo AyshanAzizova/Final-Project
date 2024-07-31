@@ -14,7 +14,7 @@ const SignIn = ({ onClose, onRegisterClick, onForgotPasswordClick }) => {
   const submitForm = async (requestBody) => {
 
     try {
-      const response = await fetch("/api/auth/signin", {
+      const response = await fetch("api/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,28 +23,39 @@ const SignIn = ({ onClose, onRegisterClick, onForgotPasswordClick }) => {
       });
 
       const data = await response.json();
+      console.log(response.status);
 
-      if (!response.ok) {
+      if (!response.status===200) {
         alert(data.error);
-      }
-      dispatch(
-        login({
-          id: data._id
-        })
-      );
-
-
-      if (emailRef.current) {
+      }else{
+        dispatch(
+          login({
+            id: data._id
+          })
+        );
+        navigate("/")
+        if (emailRef.current) {
+          emailRef.current.value = "";
+        }
+  
+        if (passwordRef.current) {
+          passwordRef.current.value = "";
+        }if (emailRef.current) {
         emailRef.current.value = "";
       }
 
       if (passwordRef.current) {
         passwordRef.current.value = "";
       }
+      }
+      
+
+
+      
 
       console.log(emailRef,passwordRef);
 
-      navigate("/")
+
 
     } catch (error) {
       console.log(error);
@@ -62,7 +73,6 @@ const SignIn = ({ onClose, onRegisterClick, onForgotPasswordClick }) => {
 
     await submitForm({ email, password });
 
-    navigate("/")
   };
   return (
     <div className="user-modal">
@@ -71,7 +81,7 @@ const SignIn = ({ onClose, onRegisterClick, onForgotPasswordClick }) => {
         <h2>Great to have you back!</h2>
         <form onSubmit={handleSubmit}>
         <p style={{cursor:"pointer"}}>Continue with Google</p>
-            <input ref={emailRef} placeholder="E-mail address"/>
+            <input ref={emailRef} type="email"  placeholder="E-mail address"/>
             <input ref={passwordRef} placeholder="Password"/>
             <Link to='/forgotpassword'>Forgot your password?</Link>
             <button>SIGN IN</button>

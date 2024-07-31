@@ -1,5 +1,5 @@
 import express from 'express';
-import { addSingleProduct, getProducts, getSingleProduct , getProductsByCategory } from '../controllers/product.controller.js';
+import { addSingleProduct, getProducts, getSingleProduct ,getProductsByCategory, removeProduct } from '../controllers/product.controller.js';
 
 const router = express.Router();
 //Get all products
@@ -13,6 +13,9 @@ router.get("/category/:categoryId", getProductsByCategory);
 
 //Post a new produc
 router.post("/", addSingleProduct)
+router.delete('/:productId',removeProduct)
 
 
 export default router 
+
+

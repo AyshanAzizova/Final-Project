@@ -1,13 +1,23 @@
-import Order from '../models/order.model.js'
-import Cart from '../models/cart.model.js'
-import Product from '../models/product.model.js'
+import Order from "../models/order.model.js"
+import Cart from "../models/cart.model.js"
+import Product from "../models/product.model.js"
 
 //Get all orders
+// export const getOrders = async (request, response) => {
+//     const orders = await Order.find()
+//     if (!orders) return response.status(404).send({ error: "Something went wrong" })
+//     response.status(200).send(orders)
+// }
 export const getOrders = async (request, response) => {
-    const orders = await Order.find()
-    if (!orders) return response.status(404).send({ error: "Something went wrong" })
-    response.status(200).send(orders)
+    try {
+        const orders = await Order.find().populate('orderItems.productId', 'title'); // Yalnız məhsulun adını gətiririk
+        if (!orders) return response.status(404).send({ error: "Something went wrong" });
+        response.status(200).send(orders);
+    } catch (error) {
+        return response.status(500).send({ error: "Server error" });
+    }
 }
+
 
 //get a single order
 export const getSingleOrder = async (request, response) => {
@@ -19,8 +29,15 @@ export const getSingleOrder = async (request, response) => {
 
 //add a single Order
 export const addOrder = async (request, response) => {
-    const { _id: userId } = request.user
-    const { totalPrice, orderItems, shippingAddress } = request.body
+    console.log(request);
+    const { _id: userId,email:email } = request.user
+    const {  orderItems, shippingAddress } = request.body
+    let totalPrice = 0;
+
+
+
+    
+    
     //check empty values
     for (const value of Object.values(shippingAddress)) {
         if (!value) {
@@ -28,9 +45,10 @@ export const addOrder = async (request, response) => {
         }
     }
     const orderItemsWithAddress = orderItems.map((orderItem) => {
+        totalPrice += orderItem.quantity * orderItem.price;
         return { ...orderItem, shippingAddress }
     })
-    const newOrder = await Order.create({ orderItems: orderItemsWithAddress, totalPrice, userId })
+    const newOrder = await Order.create({ orderItems: orderItemsWithAddress, totalPrice, userId,email })
 
     if (!newOrder) return response.status(400).send({ error: "Could not create a new Order" })
 
@@ -40,7 +58,7 @@ export const addOrder = async (request, response) => {
     userCart.cartItems = []
     await userCart.save()
 
-    const products = await Product.find() 
+    const products = await Product.find()
 
     for (const orderItem of orderItems) {
         const { color: colorId, size: sizeId, productId, quantity } = orderItem
@@ -55,7 +73,7 @@ export const addOrder = async (request, response) => {
             )
             if (stockItem) {
                 if (quantity > stockItem.quantity) {
-                    return response.status(400).send({error:"Invalid quantity"})
+                    return response.status(400).send({ error: "Invalid quantity" })
                 }
                 stockItem.quantity = stockItem.quantity - quantity
                 await product.save()

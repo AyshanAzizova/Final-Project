@@ -5,14 +5,18 @@ import Product from '../models/product.model.js'
 
 //get a single cart
 export const getCart = async (request, response) => {
-    const { id: userId } = request.user
-    const cart = await Cart.findOne({ userId })
+    const { id: userId } = request.user;
+    const cart = await Cart.findOne({ userId }).populate({
+        path: 'cartItems.productId',
+        model: 'Product',
+        select: 'title productPic' // lazımlı sahələri daxil edin
+    }).populate('cartItems.color').populate('cartItems.size');
 
     if (!cart) {
-        return response.status(400).send({ error: "Something went wrong" })
+        return response.status(400).send({ error: "Something went wrong" });
     }
-    response.status(200).send(cart)
-}
+    response.status(200).send(cart);
+};
 //add a single cart
 export const addCart = async (request, response) => {
     try {
@@ -60,3 +64,33 @@ export const addCart = async (request, response) => {
         response.status(500).send({ error: "Internal Server Error" });
     }
 }  
+
+// Remove item from cart
+export const removeProductFromCart = async (req, res) => {
+    try {
+        const { userId, productId } = req.params;
+
+        // Find the user's cart
+        const cart = await Cart.findOne({ userId });
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
+        }
+
+        // Filter out the product to be removed
+        const updatedCartItems = cart.cartItems.filter(item => item.productId.toString() !== productId);
+
+        // If the product was not found in the cart
+        if (updatedCartItems.length === cart.cartItems.length) {
+            return res.status(404).json({ message: 'Product not found in cart' });
+        }
+
+        // Update the cart with the filtered items
+        cart.cartItems = updatedCartItems;
+        const updatedCart = await cart.save();
+
+        res.status(200).json(updatedCart);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+

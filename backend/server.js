@@ -13,6 +13,7 @@ import CartRoutes from "./routes/cart.routes.js"
 import ProductRoutes from "./routes/product.routes.js"
 import SizeRoutes from "./routes/size.routes.js"
 import CategoriesRoutes from "./routes/category.routes.js"
+import WishlistRoutes from './routes/wishlist.routes.js'
 
 const app = express();
 //Middleware
@@ -23,7 +24,7 @@ app.use(express.static("./"))
 dotenv.config();
 
 //ENV variables
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const MONGODB_URL = process.env.MONGODB_URL
 
 // Multer
@@ -46,6 +47,7 @@ app.use("/api/colors", ColorRoutes)
 app.use("/api/reviews", ReviewRoutes)
 app.use("/api/orders", OrderRoutes)
 app.use("/api/categories", CategoriesRoutes )
+app.use("/api/wishlist",WishlistRoutes)
 
 
 app.listen(PORT, () => {

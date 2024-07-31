@@ -12,6 +12,7 @@
     width: 100%;
 }
 .banner_item {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
     height: 100%;

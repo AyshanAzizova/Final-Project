@@ -2,7 +2,7 @@ import Product from "../models/product.model.js";
 import Color from "../models/color.model.js";
 import Size from "../models/size.model.js";
 
-//Get all products
+// Get all products
 export const getProducts = async (request, response) => {
   const products = await Product.find();
   if (!products)
@@ -10,14 +10,36 @@ export const getProducts = async (request, response) => {
   return response.status(200).send(products);
 };
 
+
+
+
 //get a single product
+// export const getSingleProduct = async (request, response) => {
+//   const { productId } = request.params;
+//   const singleproduct = await Product.findById(productId);
+//   if (!singleproduct)
+//     return response.status(404).send({ error: "Something went wrong" });
+//   return response.status(200).send(singleproduct);
+// };
+
 export const getSingleProduct = async (request, response) => {
-  const { productId } = request.params;
-  const singleproduct = await Product.findById(productId);
-  if (!singleproduct)
-    return response.status(404).send({ error: "Something went wrong" });
-  return response.status(200).send(singleproduct);
+    const { productId } = request.params;
+    try {
+        const singleProduct = await Product.findById(productId)
+            .populate('stock.color') // color məlumatlarını gətirir
+            .populate('stock.size');  // size məlumatlarını gətirir
+
+        if (!singleProduct) {
+            return response.status(404).send({ error: "Something went wrong" });
+        }
+
+        return response.status(200).send(singleProduct);
+    } catch (error) {
+        return response.status(500).send({ error: "Server error" });
+    }
 };
+
+
 
  // Get products by category
  export const getProductsByCategory = async (req, res) => {
@@ -102,4 +124,19 @@ export const addSingleProduct = async (request, response) => {
     productPic: path,
   });
   response.status(201).send(newProduct);
+};
+
+// remove
+
+export const removeProduct = async (req, res) => {
+  try {
+      const { productId } = req.params;
+      const product = await Product.findByIdAndDelete(productId);
+      if (!product) {
+          return res.status(404).send({ error: "Product not found" });
+      }
+      res.status(200).send({ message: "Product successfully deleted" });
+  } catch (error) {
+      res.status(500).send({ error: "Internal server error" });
+  }
 };

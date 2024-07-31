@@ -38,10 +38,10 @@ const orderItem = mongoose.Schema({
             type: String,
             required: true,
         },
-        district: {
-            type: String,
-            required: true,
-        },
+        // district: {
+        //     type: String,
+        //     required: true,
+        // },
         zipCode: {
             type: String,
             required: true,
@@ -59,6 +59,10 @@ const orderSchema = mongoose.Schema({
         ref: "User",
         required: true,
     },
+    email:{
+        type:String,
+        required:true,
+    },
     totalPrice:{
         type: Number,
         required: true,
@@ -66,4 +70,4 @@ const orderSchema = mongoose.Schema({
     orderItems: [orderItem],
 },{timestamps:true})
 
-export default mongoose.model("Order ", orderSchema)
+export default mongoose.model("Order", orderSchema)

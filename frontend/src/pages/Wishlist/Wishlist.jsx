@@ -1,25 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Wishlist.css';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 const Wishlist = () => {
-    const items = [
-        { name: 'Lamp Base', price: '$50.00', image: 'https://via.placeholder.com/100' },
-        { name: 'Desk Chair', price: '$150.00', image: 'https://via.placeholder.com/100' },
-        { name: 'Wooden Table', price: '$300.00', image: 'https://via.placeholder.com/100' }
-    ];
+ const [wishlist, setWishlist] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const user = useSelector(state => state.user);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const fetchWishlist = async () => {
+      if (!user.userId) {
+        navigate('/');
+      }
+      try {
+        const response = await fetch(`/api/wishlist/wishlist/${user.userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        if(response.status!==404){
+          setWishlist(data)
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching wishlist:', error);
+        setError('Failed to fetch wishlist. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+
+    fetchWishlist();
+  }, [user._id]);
+
+  const handleRemoveFromWishlist = async (productId) => {
+    try {
+      await fetch(`/api/wishlist/wishlist/remove/${user.userId}/${productId}`, { method: 'DELETE' });
+      setWishlist(wishlist.filter(item => item._id !== productId));
+    } catch (error) {
+      console.error('Error removing from wishlist:', error);
+    }
+  };
+
+  const handleClearWishlist = async () => {
+    try {
+      await Promise.all(wishlist.map(item =>
+        fetch(`/api/wishlist/wishlist/remove/${user.userId}/${item._id} `, { method: 'DELETE' })
+      ));
+      setWishlist([]);
+    } catch (error) {
+      console.error('Error clearing wishlist:', error);
+    }
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
     return (
         <div className="wishlist-container">
             <h1>Wishlist</h1>
             <ul className="wishlist-items">
-                {items.map((item, index) => (
-                    <li key={index} className="wishlist-item">
-                        <img src={item.image} alt={item.name} className="wishlist-image" />
+                {wishlist.map((item) => (
+                    <li key={item._id} className="wishlist-item">
+                        <img src={`http://localhost:7007/${item.productPic}`} alt={item.name} className="wishlist-image" />
                         <div className="wishlist-details">
                             <h3>{item.name}</h3>
                             <p>{item.price}</p>
+                            <p>{item.color}</p>
+                            <p>{item.size}</p>
                             <div className="wishlist-buttons">
-                                <button className="wishlist-remove">Remove</button>
+                            
+                                <button onClick={()=>handleRemoveFromWishlist(item._id)} className="wishlist-remove">Remove</button>
                                 <button className="wishlist-add-to-cart">Add to Cart</button>
                             </div>
                         </div>

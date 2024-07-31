@@ -13,7 +13,7 @@
   justify-content: center;
 }
 .sliderText {
-    width: 30%;
+    width: max-content;
   position: absolute;
   color: white;
   font-size: 30px;
@@ -30,10 +30,10 @@
 }
 .sliderText h2{
     font-size: 50px;
+    line-height: 80px;
     font-weight: 700;
     margin-bottom: 35px;
     letter-spacing: .05em;
-    line-height: 80px;
 }
 .sliderText a{
     cursor: pointer;
@@ -87,4 +87,46 @@
 
 .slick-next {
   right: 0; /* Sağ oxun yeri */
+}
+@media screen and (max-width: 877px) {
+  .sliderText h2 {
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 30px;
+  }
+  .sliderText a{
+    padding: 12px 33px;    ;
+  }
+}
+@media screen and (max-width: 700px) {
+  .sliderText{
+    right: 10%;
+  }
+  .sliderText h2 {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 30px;
+  }
+  .sliderText p{
+    display: none;
+  }
+  .sliderText a{
+    padding: 12px 33px;    ;
+  }
+}
+@media screen and (max-width: 473px) {
+  .sliderText{
+    right: 10%;
+  }
+  .sliderText h2 {
+    font-size: 24px;
+    line-height: 18px;
+    margin-bottom: 20px;
+  }
+  .sliderText p{
+    display: none;
+  }
+  .sliderText a{
+    padding: 10px 22px;    ;
+  }
 }
